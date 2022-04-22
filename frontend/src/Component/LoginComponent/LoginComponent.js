@@ -2,6 +2,7 @@ import React from "react";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import TextField from "../TextField/TextField";
+import axios from "../../Axios";
 
 function LoginComponent() {
   const Validate = Yup.object({
@@ -19,6 +20,7 @@ function LoginComponent() {
       validationSchema={Validate}
       onSubmit={(values) => {
         console.log(values);
+        axios.post("/");
       }}
     >
       {(formik) => (
