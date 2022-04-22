@@ -1,0 +1,8 @@
+.selectTag {
+  outline: 0;
+  overflow: hidden;
+  border: 0px;
+  background-color: rgb(255, 255, 255);
+  border-bottom: 3px solid red;
+  font-size: 40px;
+}

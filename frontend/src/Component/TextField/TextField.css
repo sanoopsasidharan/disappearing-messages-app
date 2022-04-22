@@ -1,0 +1,8 @@
+/* .error {
+  position: absolute;
+  color: red;
+} */
+.error {
+  margin: 7px 0px 10px 0px;
+  color: red;
+}
