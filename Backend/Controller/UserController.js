@@ -1,6 +1,7 @@
 const createError = require("http-errors");
 const User = require("../Model/UserModel");
 var objectId = require("mongodb").ObjectId;
+const { AccessToken } = require("../Config/jwt_helper");
 
 module.exports = {
   findUser: async (req, res, next) => {
@@ -32,22 +33,34 @@ module.exports = {
     try {
       console.log("this is user login ");
       const { email, password } = req.body.values;
+      console.log(email, password);
       const user = await User.findOne({ email });
       console.log(user);
+
       if (!user) throw createError.NotFound("user not registered");
-      const isMatch = await user.isValidPassword(result.password);
-      if (!isMatch)
-        throw createError.Unauthorized("username/password not valid");
 
-      const userId = user._id + "";
-      const accessToken = await signAccessToken(user);
+      if (user.password === password) {
+        console.log("true");
+        const AcessToken = await AccessToken(user);
+        res.cookie("Tocken", AcessToken, { httpOnly: true }).json({ shop });
+        // res.json({ user, loggedIn: true });
+      } else {
+        console.log("fales");
 
-      res
-        .cookie("userTocken", accessToken, { httpOnly: true })
-        .json({ user, loggedIn: true });
+        res.json({ user, loggedIn: false });
+      }
+
+      // const isMatch = await user.isValidPassword(result.password);
+      // if (!isMatch)
+      //   throw createError.Unauthorized("username/password not valid");
+
+      // const userId = user._id + "";
+      // const accessToken = await signAccessToken(user);
+
+      // res
+      //   .cookie("userTocken", accessToken, { httpOnly: true })
+      //   .json({ user, loggedIn: true });
     } catch (error) {
-      if (error.isJoi)
-        return next(createError.BadRequest("invalid username / password"));
       next(error);
     }
   },

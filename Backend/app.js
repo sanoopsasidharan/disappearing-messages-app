@@ -9,6 +9,7 @@ require("./Config/Connection");
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
+var msgAndLink = require("./routes/msg&link");
 
 var app = express();
 app.use(
@@ -27,6 +28,7 @@ app.use(express.static(path.join(__dirname, "public")));
 // app.use("/", indexRouter);
 app.use("/", usersRouter);
 app.use("/users", indexRouter);
+app.use("/msg&link", msgAndLink);
 
 app.use((req, res, next) => next(createError.NotFound()));
 
