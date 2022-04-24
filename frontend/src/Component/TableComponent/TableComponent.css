@@ -1,0 +1,42 @@
+.TableTopBar {
+  height: 50px;
+  background-color: rgb(66, 66, 66);
+  display: flex;
+  justify-content: space-between;
+}
+.TableSelectTag {
+  background-color: rgba(255, 0, 0, 0);
+  color: whitesmoke;
+  border: 0px;
+  font-size: 15px;
+  margin-left: 30px;
+}
+.TableSelectTag option {
+  background-color: rgb(0, 0, 0);
+}
+.tableTopRightdiv {
+  display: flex;
+  text-align: center;
+  padding-right: 30px;
+}
+.tableTopleftdiv {
+  display: flex;
+  text-align: center;
+}
+.tableTopleftdiv h6 {
+  color: whitesmoke;
+  margin: 15px 0px 0px 20px;
+}
+.errorDiv {
+  background-color: rgb(255, 255, 255);
+  height: 65px;
+  display: flex;
+  justify-content: center;
+}
+.errorDiv span {
+  display: flex;
+  align-items: center;
+  font-size: larger;
+  font-weight: bold;
+  color: red;
+}

@@ -3,8 +3,11 @@ import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import TextField from "../TextField/TextField";
 import axios from "../../Axios";
+import { useNavigate } from "react-router-dom";
 
 function LoginComponent() {
+  const navigate = useNavigate();
+
   const Validate = Yup.object({
     email: Yup.string().email("Email is invalid").required("Email is required"),
     password: Yup.string()
@@ -19,8 +22,17 @@ function LoginComponent() {
       }}
       validationSchema={Validate}
       onSubmit={(values) => {
-        console.log(values);
-        axios.post("/");
+        axios
+          .post("/login_user", { values })
+          .then((res) => {
+            if (res.data.loggedIn) {
+              navigate("/");
+            }
+            console.log(res);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
       }}
     >
       {(formik) => (

@@ -1,0 +1,35 @@
+.ModalCloseButton {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.NavigationModalBox {
+  position: relative;
+}
+.modalHead {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+.modalLinkDiv {
+  display: flex;
+  justify-content: center;
+  background-color: rgb(7, 7, 7);
+  color: whitesmoke;
+  padding: 10px 10px 15px 10px;
+  border-radius: 15px;
+  margin: 20px 0px 20px 0px;
+}
+.modalLinkDiv a {
+  color: whitesmoke;
+}
+
+/* @media screen and (max-width: 592px) {
+  .NavigationMainModal {
+    width: "40%";
+  }
+} */
+/* .NavigationModalBox {
+  width: "10%";
+} */

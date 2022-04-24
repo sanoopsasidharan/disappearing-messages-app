@@ -1,0 +1,77 @@
+.navigationBarMainDiv {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  height: 60px;
+}
+.navigationBarLeftDiv {
+  display: flex;
+  align-items: center;
+  margin: 0px 30px 0px 20px;
+}
+.navigationBarLeftDiv span {
+  font-size: 20px;
+  margin-left: 10px;
+}
+
+/* From uiverse.io by @Sergestra */
+.logOutButton {
+  outline: 0;
+  border: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  width: 100%;
+  height: 50px;
+  border-radius: 0.5em;
+  /* box-shadow: 0 0.625em 1em 0 rgba(30, 143, 255, 0.35); */
+  overflow: hidden;
+}
+
+.logOutButton div {
+  transform: translateY(0px);
+  width: 100%;
+}
+
+.logOutButton,
+.logOutButton div {
+  transition: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.logOutButton div span {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 50px;
+  padding: 0.75em 1.125em;
+}
+
+.logOutButton div:nth-child(1) {
+  background-color: #000000;
+}
+
+.logOutButton div:nth-child(2) {
+  background-color: #000000;
+}
+
+.logOutButton:hover {
+  box-shadow: 0 0.625em 1em 0 rgba(0, 0, 0, 0.35);
+}
+
+.logOutButton:hover div {
+  transform: translateY(-50px);
+}
+
+.logOutButton p {
+  font-size: 17px;
+  font-weight: bold;
+  color: #ffffff;
+  margin: 0;
+}
+
+.logOutButton:active {
+  transform: scale(0.95);
+}
+.iconTextsapn {
+  color: white;
+}
