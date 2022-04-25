@@ -16,4 +16,9 @@ router.get("/gettingData/:id", verifyToken, gettingData);
 
 router.post("/geting_MsgAndLink", verifyToken, MsgAndLink);
 
+router.post("/userIsLoggedIn", verifyToken, (req, res, next) => {
+  const payload = req.payload;
+  res.json({ user: true, payload });
+});
+
 module.exports = router;

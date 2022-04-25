@@ -42,8 +42,10 @@ module.exports = {
       if (user.password === password) {
         console.log("true");
         const AcessToken = await AccessToken(user);
-        res.cookie("Tocken", AcessToken, { httpOnly: true }).json({ shop });
-        // res.json({ user, loggedIn: true });
+        console.log(AcessToken);
+        res
+          .cookie("Tocken", AcessToken, { httpOnly: true })
+          .json({ user, loggedIn: true });
       } else {
         console.log("fales");
 
@@ -61,6 +63,21 @@ module.exports = {
       //   .cookie("userTocken", accessToken, { httpOnly: true })
       //   .json({ user, loggedIn: true });
     } catch (error) {
+      next(error);
+    }
+  },
+  // logout user
+  Loggedout: async (req, res, next) => {
+    try {
+      console.log("this is shop loggout function");
+      res
+        .cookie("Tocken", "", {
+          httpOnly: true,
+          expires: new Date(0),
+        })
+        .json({ loggedout: true });
+    } catch (error) {
+      console.log(error);
       next(error);
     }
   },

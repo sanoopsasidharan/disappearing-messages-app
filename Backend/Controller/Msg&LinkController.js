@@ -12,7 +12,7 @@ module.exports = {
       const { time, value, valuetype } = req.body;
       const unique = short.generate();
       const isActive = true;
-      console.log(unique);
+      console.log(unique, time, valuetype, isActive);
       const addData = new MsgAndLink({
         time,
         value,
@@ -26,6 +26,7 @@ module.exports = {
       console.log(saveData);
       res.status(200).json(saveData);
     } catch (error) {
+      console.log(error);
       next(error);
     }
   },
@@ -49,34 +50,33 @@ module.exports = {
         isActive: selectValue,
         valuetype: type,
         userId: objectId(req.payload.id),
-      });
+      }).sort({ _id: -1 });
       // console.log(result);
-      const sample = result[0].time;
-      console.log(sample);
-      function convertHMS(value) {
-        const sec = parseInt(value, 10); // convert value to number if it's string
-        let day = Math.floor(sec / (3600 * 24));
-        let hours = Math.floor(sec / 3600); // get hours
-        let minutes = Math.floor((sec - hours * 3600) / 60); // get minutes
-        let seconds = sec - hours * 3600 - minutes * 60; //  get seconds
-        // add 0 if value < 10; Example: 2 => 02
-        if (day < 10) {
-          day = "0" + day;
-        }
-        if (hours < 10) {
-          hours = "0" + hours;
-        }
-        if (minutes < 10) {
-          minutes = "0" + minutes;
-        }
-        if (seconds < 10) {
-          seconds = "0" + seconds;
-        }
+      // const sample = result[0].time;
+      // console.log(sample);
+      // function convertHMS(value) {
+      //   const sec = parseInt(value, 10);
+      //   let day = Math.floor(sec / (3600 * 24));
+      //   let hours = Math.floor(sec / 3600);
+      //   let minutes = Math.floor((sec - hours * 3600) / 60);
+      //   let seconds = sec - hours * 3600 - minutes * 60;
+      //   if (day < 10) {
+      //     day = "0" + day;
+      //   }
+      //   if (hours < 10) {
+      //     hours = "0" + hours;
+      //   }
+      //   if (minutes < 10) {
+      //     minutes = "0" + minutes;
+      //   }
+      //   if (seconds < 10) {
+      //     seconds = "0" + seconds;
+      //   }
 
-        return day + ":" + hours + ":" + minutes + ":" + seconds; // Return is HH : MM : SS
-      }
+      //   return day + ":" + hours + ":" + minutes + ":" + seconds; // Return is HH : MM : SS
+      // }
 
-      console.log(convertHMS(sample));
+      // console.log(convertHMS(sample));
 
       // function secondsToDhms(seconds) {
       //   seconds = Number(seconds);

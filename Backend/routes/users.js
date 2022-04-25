@@ -1,7 +1,11 @@
 var express = require("express");
 const { verifyToken } = require("../Config/jwt_helper");
 var router = express.Router();
-const { createUser, loginUser } = require("../Controller/UserController");
+const {
+  createUser,
+  loginUser,
+  Loggedout,
+} = require("../Controller/UserController");
 
 /* GET users listing. */
 router.get("/", function (req, res, next) {
@@ -17,5 +21,7 @@ router.post("/register_user", createUser);
 // @body value
 // @return user,meg
 router.post("/login_user", loginUser);
+
+router.post("/loggedout", Loggedout);
 
 module.exports = router;
