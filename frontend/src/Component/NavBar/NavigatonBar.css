@@ -3,6 +3,7 @@
   display: flex;
   justify-content: space-between;
   height: 60px;
+  width: 100%;
 }
 .navigationBarLeftDiv {
   display: flex;
@@ -12,6 +13,8 @@
 .navigationBarLeftDiv span {
   font-size: 20px;
   margin-left: 10px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 /* From uiverse.io by @Sergestra */

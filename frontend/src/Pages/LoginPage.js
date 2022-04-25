@@ -17,7 +17,11 @@ function LoginPage() {
           <LoginComponent />
         </div>
         <div className="col-md-7 my-auto">
-          <img className="img-fluid w-100" src={rocketImg} alt="" />
+          <img
+            className="img-fluid w-60"
+            src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/reading_0re1.svg"
+            alt=""
+          />
         </div>
       </div>
     </div>

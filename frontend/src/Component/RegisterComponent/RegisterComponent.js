@@ -27,6 +27,9 @@ function RegisterComponent() {
       .required("ConFirmpassword required"),
   });
 
+  const handleNavigate = () => {
+    navigate("/login");
+  };
   return (
     <Formik
       initialValues={{
@@ -81,6 +84,18 @@ function RegisterComponent() {
               }}
             >
               <p>{ErrorMessage}</p>
+            </div>
+            <div
+              onClick={handleNavigate}
+              style={{
+                color: "black",
+                display: "flex",
+                justifyContent: "end",
+                cursor: "pointer",
+                marginRight: "10px",
+              }}
+            >
+              <p>I have already account</p>
             </div>
             <button
               style={{ width: "100%" }}

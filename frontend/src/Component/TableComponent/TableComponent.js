@@ -42,7 +42,7 @@ function TableComponent() {
 
   return (
     <>
-      <div className="container mt-5">
+      <div className="container mt-5 tableMainContarner">
         <div className="TableTopBar">
           <div className="tableTopleftdiv">
             <h6>{type}&nbsp;Table</h6>
@@ -73,52 +73,54 @@ function TableComponent() {
             </button>
           </div>
         </div>
-        <TableContainer component={Paper}>
-          <Table sx={{ minWidth: 650 }} aria-label="simple table">
-            <TableHead>
-              <TableRow>
-                <TableCell align="center">Content</TableCell>
-                <TableCell align="center">Type</TableCell>
-                <TableCell align="center">Time</TableCell>
-                <TableCell align="center">Status</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {data &&
-                data.map((row, index) => (
-                  <TableRow
-                    key={index}
-                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                  >
-                    <TableCell align="center">{row?.value}</TableCell>
-                    <TableCell align="center">{row?.valuetype}</TableCell>
-                    <TableCell align="center">
-                      {row.time === "60"
-                        ? "1 minute"
-                        : row.time === "600"
-                        ? "10 minute"
-                        : row.time === "3600"
-                        ? "1 hour"
-                        : row.time === "86400"
-                        ? "1 day"
-                        : "1 week"}
-                    </TableCell>
+        <div className="scrollableDiv">
+          <TableContainer component={Paper}>
+            <Table sx={{ minWidth: 650 }} aria-label="simple table">
+              <TableHead>
+                <TableRow>
+                  <TableCell align="center">Content</TableCell>
+                  <TableCell align="center">Type</TableCell>
+                  <TableCell align="center">Time</TableCell>
+                  <TableCell align="center">Status</TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {data &&
+                  data.map((row, index) => (
+                    <TableRow
+                      key={index}
+                      sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                    >
+                      <TableCell align="center">{row?.value}</TableCell>
+                      <TableCell align="center">{row?.valuetype}</TableCell>
+                      <TableCell align="center">
+                        {row.time === "60"
+                          ? "1 minute"
+                          : row.time === "600"
+                          ? "10 minute"
+                          : row.time === "3600"
+                          ? "1 hour"
+                          : row.time === "86400"
+                          ? "1 day"
+                          : "1 week"}
+                      </TableCell>
 
-                    {row?.isActive ? (
-                      <TableCell align="center">active</TableCell>
-                    ) : (
-                      <TableCell align="center">deactive</TableCell>
-                    )}
-                  </TableRow>
-                ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
-        {error && (
-          <div className="errorDiv">
-            <span>{error}</span>
-          </div>
-        )}
+                      {row?.isActive ? (
+                        <TableCell align="center">active</TableCell>
+                      ) : (
+                        <TableCell align="center">deactive</TableCell>
+                      )}
+                    </TableRow>
+                  ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
+          {error && (
+            <div className="errorDiv">
+              <span>{error}</span>
+            </div>
+          )}
+        </div>
       </div>
     </>
   );

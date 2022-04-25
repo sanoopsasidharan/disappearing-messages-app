@@ -26,9 +26,19 @@ function DataShow() {
   };
   return (
     <div className="ShowDataMainDiv">
-      <div>{data?.value}</div>
-      <div>{data?.valuetype}</div>
-      <div>{data?.time}</div>
+      <div className="card">
+        <div>
+          <div className="cardContend">
+            <p>{data?.value}</p>
+          </div>
+          <div className="cardContend">
+            <p>{data?.valuetype}</p>
+          </div>
+          <div className="cardContend">
+            <p>{data?.time}</p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

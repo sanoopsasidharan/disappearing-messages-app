@@ -3,7 +3,11 @@
   background-color: rgb(66, 66, 66);
   display: flex;
   justify-content: space-between;
+  overflow: auto;
 }
+/* .scrollableDiv {
+  overflow: scroll;
+} */
 .TableSelectTag {
   background-color: rgba(255, 0, 0, 0);
   color: whitesmoke;
